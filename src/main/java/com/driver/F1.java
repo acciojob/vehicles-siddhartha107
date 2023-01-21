@@ -9,7 +9,7 @@ public class F1 extends Car {
         //Use arbitrary values for parameters which are not mentioned
     }
 
-    public void accelerate(int rate){
+    public void accelerate(int rate) {
         int newSpeed = 0; //set the value of new speed by using currentSpeed and rate
         /**
          * speed 0: gear 1
@@ -22,41 +22,40 @@ public class F1 extends Car {
          */
         newSpeed = getCurrentSpeed() + rate;
 
-        if(newSpeed == 0) {
+        if (newSpeed == 0) {
+
             setCurrentSpeed(0);
             setCurrentGear(1);
             vehicleisMoving = false;
+            stop();
 
 
             //Stop the car, set gear as 1
         }
         //for all other cases, change the gear accordingly
+        if (newSpeed > 0) {
+            vehicleisMoving = true;
+            if (newSpeed > 0 && newSpeed < 51) {
 
-        if(newSpeed > 0 && newSpeed <51) {
+                setCurrentGear(1);
+                changeSpeed(newSpeed, getCurrentDirection());
 
-            setCurrentGear(1);
-            changeSpeed(newSpeed, getCurrentDirection());
-
-        }
-        else if(newSpeed >50 && newSpeed <101){
-            setCurrentGear(2);
-            changeSpeed(newSpeed, getCurrentDirection());
-        }
-        else if(newSpeed >100 && newSpeed <151){
-            setCurrentGear(3);
-            changeSpeed(newSpeed, getCurrentDirection());
-        }
-        else if(newSpeed >150 && newSpeed <201){
-            setCurrentGear(4);
-            changeSpeed(newSpeed, getCurrentDirection());
-        }
-        else if(newSpeed >200 && newSpeed <251){
-            setCurrentGear(5);
-            changeSpeed(newSpeed, getCurrentDirection());
-        }
-        else if(newSpeed >250){
-            setCurrentGear(6);
-            changeSpeed(newSpeed, getCurrentDirection());
+            } else if (newSpeed > 50 && newSpeed < 101) {
+                setCurrentGear(2);
+                changeSpeed(newSpeed, getCurrentDirection());
+            } else if (newSpeed > 100 && newSpeed < 151) {
+                setCurrentGear(3);
+                changeSpeed(newSpeed, getCurrentDirection());
+            } else if (newSpeed > 150 && newSpeed < 201) {
+                setCurrentGear(4);
+                changeSpeed(newSpeed, getCurrentDirection());
+            } else if (newSpeed > 200 && newSpeed < 251) {
+                setCurrentGear(5);
+                changeSpeed(newSpeed, getCurrentDirection());
+            } else if (newSpeed > 250) {
+                setCurrentGear(6);
+                changeSpeed(newSpeed, getCurrentDirection());
+            }
         }
     }
 }
