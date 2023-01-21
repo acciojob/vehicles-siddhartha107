@@ -3,7 +3,7 @@ package com.driver;
 public class F1 extends Car {
 
     public F1(String name, boolean isManual) {
-  super();
+
 
 
         //Use arbitrary values for parameters which are not mentioned
@@ -20,7 +20,7 @@ public class F1 extends Car {
          * speed 201-250: gear 5
          * speed more than 250: gear 6
          */
-        newSpeed = newSpeed + rate;
+        newSpeed = getCurrentSpeed() + rate;
 
         if(newSpeed == 0) {
             setCurrentSpeed(0);
