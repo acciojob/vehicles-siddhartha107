@@ -84,9 +84,10 @@ public class Car extends Vehicle {
 
     public void changeGear(int newGear){
 
-        if(!vehicleisMoving) {
-            newGear = currentGear;
+        if(!vehicleisMoving && !isManual) {
+            newGear = getCurrentGear();
             vehicleisMoving = true;
+            isManual = true;
         }
 
 
